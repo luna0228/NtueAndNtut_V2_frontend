@@ -258,9 +258,9 @@ export default function WorksList({ school, semester }) {
                                 allowClear
                                 tagRender={tagRender}
                                 // defaultValue={['gold', 'cyan']}
-                                style={{
-                                    width: "350px",
-                                }}
+                                // style={{
+                                //     width: "350px",
+                                // }}
                                 disabled={
                                     selectedItems.length >= 3
                                         ? true

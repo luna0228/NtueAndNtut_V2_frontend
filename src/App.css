@@ -760,20 +760,25 @@
    padding-top: 20px;
  }
 
- .rightBar {
-   display: flex;
-   justify-content: space-between;
 
- }
+/* 這邊是技能篩選功能的設計區 */
+.rightBar {
+  display: flex;
+  justify-content: space-between;
 
- .rightBar .select {
-   display: flex;
-   justify-content: space-between;
-   width: 100px;
-   margin-top: 46px;
-   margin-right: 250px;
- }
+}
 
+.rightBar .select {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin-top: 46px;
+  margin-right: 250px;
+}
+
+.selectmultiple .ant-select-selector{
+  width: 350px
+}
 
  .rightBar .select .selectmultiple .ant-select-selector {
    border-color: #BDBDBD;
@@ -1341,6 +1346,39 @@
      height: 220px;
    }
  }
+
+ /* 優化Workbanner的手機版樣式 */
+ @media (max-width: 768px) {
+ }
+
+ @media (max-width: 576px) {
+  .workBanner .swiper-button-next,
+  .workBanner .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* 優化技能篩選(select)在手機版樣式 */
+  @media (max-width: 576px) {
+    .rightBar {
+      margin-right:0px;
+    }
+    .rightBar .select {
+      margin-right:0px;
+      width: auto ; 
+    }
+    .selectmultiple .ant-select-selector {
+      width: 30vh; 
+    }
+}
+
+@media (max-width: 375px) {
+  .rightBar .select {
+    width: 80vh ; 
+  }
+  .selectmultiple .ant-select-selector {
+    width: 20vh; 
+}}
 
  /* @media(max-width:732px) {
   .pageBanner .container .topBar ol.breadcrumb {
