@@ -17,7 +17,8 @@ export default function WorksList({ school, semester }) {
     //耕締以下新增
     const [currentPage, setCurrentPage] = useState(1); //新增當前頁碼為1，以及移動頁碼規則
     const [windowWidth, setWindowWidth] = useState(window.innerWidth); //新增頁面寬度為螢幕目前寬度（window.innerWidth），以及螢幕變化規則
-    const itemsPerPage = windowWidth <= 576 ? WorksList.length : 12; // 在576px以上顯示至多十二個，576px以下全列表顯示。使用?:做IF運算。
+    // const itemsPerPage = windowWidth <= 576 ? WorksList.length : 12; // 1229排錯：這邊直接寫上WorksList.length=null會導致崩潰，因為會無法在讀取任何屬性
+    const itemsPerPage = windowWidth <= 576 ? (WorksList ? WorksList.length : 0) : 12; //1229修正：WorksList ? WorksList.length : 0是關鍵，這樣寫他會先檢查是否存在，再判斷為真(不是null)的運算，或者為假（是null）的運算
     const semesterData = WorksList || []; //const semesterData = WorksList[school]?.[semester] ?? [];應用可選鏈與空值合併運算子，確保資料缺失時依然有個空陣列可用
     //WorksList會直接接到 指定學校(school)、學期(semester)的資料，所以寫法改變
     const totalWorks = semesterData.length; //宣告要處理的總卡片數值等同於學期卡片數的數量
@@ -66,18 +67,18 @@ export default function WorksList({ school, semester }) {
             } else {
                 setWorksListForBanner([]);
             }
-            //console.log("Updated WorksListForBanner:", response); //用於後台判斷
+            console.log("Updated WorksListForBanner:", response); //用於後台判斷
         }
         getWorksListDataForBanner(school, semester); //創建好後直接宣告
     }, [school, semester]);
 
 
-    //console.log("Current WorksList:", WorksList);
-    //console.log("Current WorksListForBanner:", WorksListForBanner);
-    // console.log(school + "," + semester);
-    // console.log("Current Works:", currentWorks);
-    // console.log("Total Works:", totalWorks);
-    // console.log("Total Pages:", totalPages);
+    console.log("Current WorksList:", WorksList);
+    console.log("Current WorksListForBanner:", WorksListForBanner);
+    console.log(school + "," + semester);
+    console.log("Current Works:", currentWorks);
+    console.log("Total Works:", totalWorks);
+    console.log("Total Pages:", totalPages);
 
 
 
@@ -170,13 +171,13 @@ export default function WorksList({ school, semester }) {
         } else {
             setWorksList([]);
         }
-        //console.log("Updated FilterWorksList:", response); //用於後台判斷
+        console.log("Updated FilterWorksList:", response); //用於後台判斷
     }
 
     //篩選 觸發
     const handleSelectChange = (selected) => {
-        //console.log(selected) //selected是串列
-        //console.log('selected:' + selected[0] + ',' + selected[1] + ',' + selected[2])
+        console.log(selected) //selected是串列
+        console.log('selected:' + selected[0] + ',' + selected[1] + ',' + selected[2])
         const skills = selected.slice()
         let skill1 = '', skill2 = '', skill3 = ''
         if (selected.length == 3) {
