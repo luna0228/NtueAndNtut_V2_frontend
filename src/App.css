@@ -1306,9 +1306,12 @@
      height: 35%;
    }
 
+   /* 小修改 */
    .workBannerOuter {
-     padding: 0 12px 56px;
-     display: block;
+
+    overflow-x: hidden; /*避免水平滾動條*/
+    padding: 0 12px 56px;
+    display: block;
    }
 
    .workBanner .bannerText {
@@ -1349,7 +1352,32 @@
 
  /* 優化Workbanner的手機版樣式 */
  @media (max-width: 768px) {
- }
+  .workBannerOuter{
+    width: 100vw;
+    max-width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+  }
+  .workBanner .swiper-slide {
+    height: 360px;
+  }
+  .workBanner .swiper-slide .imgBox {
+    height: 360px; 
+  }
+  }
+
+  @media (max-width: 576px) {
+    .workBanner .swiper-slide {
+      height: 240px;
+    }
+    .workBanner .swiper-slide .imgBox {
+      height: 240px; 
+    }
+  }
+
 
  @media (max-width: 576px) {
   .workBanner .swiper-button-next,
@@ -1360,25 +1388,10 @@
 
 /* 優化技能篩選(select)在手機版樣式 */
   @media (max-width: 576px) {
-    .rightBar {
-      margin-right:0px;
-    }
-    .rightBar .select {
-      margin-right:0px;
-      width: auto ; 
-    }
     .selectmultiple .ant-select-selector {
-      width: 30vh; 
+      width: 60vw; 
     }
 }
-
-@media (max-width: 375px) {
-  .rightBar .select {
-    width: 80vh ; 
-  }
-  .selectmultiple .ant-select-selector {
-    width: 20vh; 
-}}
 
  /* @media(max-width:732px) {
   .pageBanner .container .topBar ol.breadcrumb {
