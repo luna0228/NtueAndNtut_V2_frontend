@@ -1393,6 +1393,12 @@
     }
 }
 
+@media (max-width: 375px) {
+  .selectmultiple .ant-select-selector {
+    width: 50vw; 
+  }
+}
+
  /* @media(max-width:732px) {
   .pageBanner .container .topBar ol.breadcrumb {
     height: 10px;

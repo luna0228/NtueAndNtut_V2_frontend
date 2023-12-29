@@ -234,7 +234,7 @@ export default function WorksList({ school, semester }) {
                             <Button className="dropdownbutton"
                                 onClick={(e) => e.preventDefault()}>
                                 <Space className="text">
-                                    分類
+                                    刊登時間
                                     <DownOutlined />
                                 </Space>
                             </Button>
@@ -257,6 +257,7 @@ export default function WorksList({ school, semester }) {
                                 onChange={handleSelectChange}
                                 allowClear
                                 tagRender={tagRender}
+                                placeholder="技術類型"
                                 // defaultValue={['gold', 'cyan']}
                                 // style={{
                                 //     width: "350px",
