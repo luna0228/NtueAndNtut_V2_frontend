@@ -1387,15 +1387,26 @@
 }
 
 /* 優化技能篩選(select)在手機版樣式 */
-  @media (max-width: 576px) {
-    .selectmultiple .ant-select-selector {
-      width: 60vw; 
-    }
+@media (max-width: 576px) {
+  .rightBar {
+    margin-right:0px;
+  }
+  .rightBar .select {
+    margin-right:0px;
+    width: 50% ; 
+  }
+  .selectmultiple .ant-select-selector {
+    width: 45vw; 
+  }
 }
 
+
 @media (max-width: 375px) {
+  .rightBar .select {
+    width: 50% ; 
+  }
   .selectmultiple .ant-select-selector {
-    width: 50vw; 
+    width: 40vw; 
   }
 }
 
